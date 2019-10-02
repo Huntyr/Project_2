@@ -27,14 +27,14 @@ d3.json(APILink_borders, function (data) {
     // Create a new choropleth layer
     geojson = L.geoJson(data, {
       color: 'white',
-      dashArray: '3',
+      dashArray: '6',
       // Binding a pop-up to each layer
       onEachFeature: function (feature, layer) {
         layer.bindPopup(`<h1>${feature.properties.NAME}</h1><h2>Low Birth Weight %:${county_BWPY}<br>Year:${currentYear}`);
       }
     }).addTo(myMap);
 
-    colorscale = chroma.scale('OrRd').domain([0, 8]);;
+    colorscale = chroma.scale('RdBu').domain([8, 1]);;
 
     function updateMap(geojson) {
       console.log(`update, currentaYear:${currentYear}`)
@@ -45,8 +45,8 @@ d3.json(APILink_borders, function (data) {
           // console.log(`${currentYear},${datapoint["Year"]}`);
           if (datapoint.Year == currentYear && datapoint.Geography == `${feature.feature.properties.NAME} County`) {
             county_BWPY = datapoint["%_of_babies"];
-            feature.setStyle({ fillColor: colorscale(county_BWPY), fillOpacity: 1 })
-            feature._popup.setContent(`<h1>${feature.feature.properties.NAME}</h1><h2>Low Birth Weight ${county_BWPY}%<br>Year:${currentYear}`);
+            feature.setStyle({ fillColor: colorscale(county_BWPY), fillOpacity: .8 })
+            feature._popup.setContent(`<h1>${feature.feature.properties.NAME}</h1><h2>${county_BWPY}% of babies born with low birth weight<br>Year:${currentYear}`);
           }
         });
 
@@ -74,12 +74,12 @@ d3.json(APILink_borders, function (data) {
       '2013',
       '2014',
       '2015'
-      ];
-    document.getElementById('slider').addEventListener('input', function(e) {
+    ];
+    document.getElementById('slider').addEventListener('input', function (e) {
       currentYear = parseInt(years[e.target.value]);
       console.log(`current year ${currentYear}`)
       document.getElementById('year').textContent = years[e.target.value];
       updateMap(geojson);;
-      });
+    });
   });
 });

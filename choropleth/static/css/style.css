@@ -9,6 +9,12 @@ html {
   height: 100%;
 }
 
+#choropleth{
+  height: 400px;
+  width:100%;
+  position:relative;
+}
+
 .leaflet-popup-content {
   text-align: center;
 }
@@ -40,7 +46,7 @@ html {
   .map-overlay .legend .bar {
   height: 10px;
   width: 100%;
-  background: linear-gradient(to right, #FCA107, #7F3121);
+  background: linear-gradient(to left,#67001f,#b2182b,#d6604d,#f4a582,#fddbc7,#f7f7f7,#d1e5f0,#92c5de,#4393c3,#2166ac,#053061);
   }
    
   .map-overlay input {
