@@ -1,5 +1,5 @@
 import psycopg2
-from flask import Flask
+from flask import Flask,render_template
 import json
 
 # Flask Setup
@@ -32,12 +32,13 @@ cursor.close()
 #create new cursor
 cursor1 = con.cursor()
 
-#xecute query
-cursor1.execute("select location, min, max, mean from aggregate_data")
+#execute query
+# cursor1.execute("select location, Min, Max, Mean, ArrayPlus, ArrayMinus from aggregate_data")
+cursor1.execute("select * from aggregate_data")
 
 rows1 = cursor1.fetchall()
 for r1 in rows1:
-    print (f"location {r1[0]} min {r1[1]} max {r1[2]} mean {r1[3]}")
+    print (f"location {r1[0]} Min {r1[1]} Max {r1[2]} Mean {r1[3]} ArrayPlus {r1[4]} ArrayMinus {r1[5]}")
 
 # close the cursor
 cursor1.close()
@@ -55,10 +56,11 @@ with open(file, encoding='utf-8-sig') as json_file:
 
 
 ################# Flask Routes ###################
+
 @app.route('/')
 def index():
-    return "<h1 style='color: red'>hello flask</h1>"
+    return render_template('index.html')
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
