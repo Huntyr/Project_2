@@ -13,7 +13,7 @@ con = psycopg2.connect(
     host = "127.0.0.1",
     database = "low_birth_weight",
     user = "postgres",
-    password = "Sunsh1ne2",
+    password = "postgres",
     port="5432"
 )
 
@@ -77,7 +77,7 @@ def line():
 
 @app.route('/bar')
 def bar():
-    return app.send_static_file('error-bar.html')
+    return app.send_static_file('errorbar.html')
 
 @app.route('/API/CountyGeoJSON')
 def geoJSON():
@@ -86,6 +86,8 @@ def geoJSON():
 @app.route('/API/BW')
 def BW():
     return bw2csv()
+
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
