@@ -23,7 +23,7 @@ html {
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   position: absolute;
   width: 25%;
-  top: 0;
+  bottom:2%;
   left: 0;
   padding: 10px;
   z-index:9001;
@@ -56,4 +56,9 @@ html {
   position: relative;
   margin: 0;
   cursor: ew-resize;
+  }
+
+  #year{
+    font-size:2rem;
+    font-weight: bold;
   }
