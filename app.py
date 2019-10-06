@@ -46,6 +46,13 @@ cursor1.close()
 #close the connection
 con.close()
 
+def bw2csv():
+    csv="Geography,Year,%_of_babies\n"
+    for r in rows:
+        csv = csv + (f"{r[0]},{r[1]},{r[2]}\n")
+    return csv
+
+
 ################# Parse the geojson data ###################
 file = './static/data/oregon-washignton-counties-geojson.json'
 
@@ -78,7 +85,7 @@ def geoJSON():
 
 @app.route('/API/BW')
 def BW():
-    return jsonify(json_data)
+    return bw2csv()
 
 if __name__ == "__main__":
     app.run(debug=True)
