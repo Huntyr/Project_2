@@ -14,7 +14,8 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 // Link to GeoJSON
 // var APILink_borders = "./static/data/oregon-washignton-counties-geojson.json";
-var APILink_birthweights = "./data/low-birth-weight-WA_OR.csv";
+// var APILink_birthweights = "./data/low-birth-weight-WA_OR.csv";
+var APILink_birthweights = "/API/BW";
 var APILink_borders = "/API/CountyGeoJSON";
 
 var geojson;
