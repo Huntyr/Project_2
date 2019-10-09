@@ -71,8 +71,8 @@ var data = [trace1];
 
 // Define plot layout
 var layout = {
-  width: 1075,
-  height: 450,
+  // width: 1075,
+  // height: 450,
   margin: {
     t: 10,
   },
