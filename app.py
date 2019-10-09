@@ -14,7 +14,7 @@ con = psycopg2.connect(
     host = "127.0.0.1",
     database = "low_birth_weight",
     user = "postgres",
-    password = "postgres",
+    password = "Sunsh1ne2",
     port="5432"
 )
 
@@ -87,11 +87,11 @@ def root():
 def choropleth():
     return app.send_static_file('choropleth.html')
 
-@app.route('/line')
+@app.route('/linechart')
 def line():
     return app.send_static_file('linechart.html')
 
-@app.route('/bar')
+@app.route('/errorbar')
 def bar():
     return app.send_static_file('errorbar.html')
 
