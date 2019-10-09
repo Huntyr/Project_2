@@ -1,9 +1,10 @@
 
 // Create a var for the data
-var data = "county_min-max.csv";
+// var data = "county_min-max.csv";
+var data = "/bar";
 
 // Load in csv data
-Plotly.d3.csv(data, function(rows) {
+Plotly.d3.json(data, function(rows) {
 // console.log(rows);
 
 // Empty to collect (TRIAL 1)
