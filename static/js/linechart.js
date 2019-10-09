@@ -179,7 +179,7 @@ d3.json(data).then(function(rows){
         title: 'Time Series of Low Birth Weight Data',
     };
 
-    Plotly.newPlot('myDiv', data, layout);
+    Plotly.newPlot('myDiv', data, layout, {responsive: true});
 })
 
 
