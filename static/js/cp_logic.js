@@ -48,7 +48,7 @@ d3.json(APILink_borders, function (data) {
           // console.log(`year:${datapoint.year},babies:${datapoint.percentage_of_babies}, name:${datapoint.location} `)
           if (datapoint.year == currentYear && datapoint.location == `${feature.feature.properties.NAME} County`) {
             county_BWPY = datapoint.percentage_of_babies;
-            feature.setStyle({ fillColor: colorscale(county_BWPY), fillOpacity: .8 })
+            feature.setStyle({ fillColor: colorscale(county_BWPY), fillOpacity: .6 })
             feature._popup.setContent(`<h1>${feature.feature.properties.NAME}</h1><h2>${county_BWPY}% of babies born with low birth weight<br>Year:${currentYear}`);
           }
         });
