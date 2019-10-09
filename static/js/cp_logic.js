@@ -24,8 +24,8 @@ var county_BWPY;
 
 // Grab data with d3
 d3.json(APILink_borders, function (data) {
-  d3.csv(APILink_birthweights, function (bw_data) {
-
+  d3.json(APILink_birthweights, function (bw_data) {
+console.log(`bw_data:${bw_data}`);
     // Create a new choropleth layer
     geojson = L.geoJson(data, {
       color: 'white',
@@ -39,21 +39,19 @@ d3.json(APILink_borders, function (data) {
     colorscale = chroma.scale('RdBu').domain([8, 1]);;
 
     function updateMap(geojson) {
-      console.log(`update, currentaYear:${currentYear}`)
+      // console.log(`update, currentaYear:${currentYear}`)
       geojson.eachLayer(function (feature) {
 
         bw_data.forEach(datapoint => {
-          //  console.log(`${datapoint.Geography},${feature.feature.properties.NAME} County`);
+          // console.log(`${datapoint.Geography},${feature.feature.properties.NAME} County`);
           // console.log(`${currentYear},${datapoint["Year"]}`);
-          if (datapoint.Year == currentYear && datapoint.Geography == `${feature.feature.properties.NAME} County`) {
-            county_BWPY = datapoint["%_of_babies"];
+          console.log(`year:${datapoint.year},babies:${datapoint.percentage_of_babies}, name:${datapoint.location} `)
+          if (datapoint.year == currentYear && datapoint.location == `${feature.feature.properties.NAME} County`) {
+            county_BWPY = datapoint.percentage_of_babies;
             feature.setStyle({ fillColor: colorscale(county_BWPY), fillOpacity: .8 })
             feature._popup.setContent(`<h1>${feature.feature.properties.NAME}</h1><h2>${county_BWPY}% of babies born with low birth weight<br>Year:${currentYear}`);
           }
         });
-
-
-
       })
     }
     updateMap(geojson);
@@ -79,7 +77,7 @@ d3.json(APILink_borders, function (data) {
     ];
     document.getElementById('slider').addEventListener('input', function (e) {
       currentYear = parseInt(years[e.target.value]);
-      console.log(`current year ${currentYear}`)
+      // console.log(`current year ${currentYear}`)
       document.getElementById('year').textContent = years[e.target.value];
       updateMap(geojson);;
     });
