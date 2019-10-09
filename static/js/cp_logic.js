@@ -25,7 +25,7 @@ var county_BWPY;
 // Grab data with d3
 d3.json(APILink_borders, function (data) {
   d3.json(APILink_birthweights, function (bw_data) {
-console.log(`bw_data:${bw_data}`);
+    // console.log(`bw_data:${bw_data}`);
     // Create a new choropleth layer
     geojson = L.geoJson(data, {
       color: 'white',
@@ -45,7 +45,7 @@ console.log(`bw_data:${bw_data}`);
         bw_data.forEach(datapoint => {
           // console.log(`${datapoint.Geography},${feature.feature.properties.NAME} County`);
           // console.log(`${currentYear},${datapoint["Year"]}`);
-          console.log(`year:${datapoint.year},babies:${datapoint.percentage_of_babies}, name:${datapoint.location} `)
+          // console.log(`year:${datapoint.year},babies:${datapoint.percentage_of_babies}, name:${datapoint.location} `)
           if (datapoint.year == currentYear && datapoint.location == `${feature.feature.properties.NAME} County`) {
             county_BWPY = datapoint.percentage_of_babies;
             feature.setStyle({ fillColor: colorscale(county_BWPY), fillOpacity: .8 })
