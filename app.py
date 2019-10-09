@@ -56,7 +56,7 @@ def bw_to_json():
         birth_weight_dict["percentage_of_babies"] = percentage_of_babies
         birth_weight_db.append(birth_weight_dict)
     return jsonify(birth_weight_db)
-
+  
 ################# Parse the geojson data ###################
 file = './static/data/oregon-washignton-counties-geojson.json'
 
