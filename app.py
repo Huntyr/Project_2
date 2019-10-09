@@ -14,7 +14,7 @@ con = psycopg2.connect(
     host = "127.0.0.1",
     database = "low_birth_weight",
     user = "postgres",
-    password = "Sunsh1ne2",
+    password = "postgres",
     port="5432"
 )
 
