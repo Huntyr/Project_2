@@ -1,11 +1,10 @@
-
 // Create a var for the data
 // var data = "county_min-max.csv";
-var data = "/bar";
+var data = "http://localhost:5000/API/AGG";
 
 // Load in csv data
 Plotly.d3.json(data, function(rows) {
-// console.log(rows);
+  console.log(rows);
 
 // Empty to collect (TRIAL 1)
 var x_counties = [];
@@ -17,14 +16,14 @@ var errorArrayMin = [];
 for (var i = 0; i < rows.length; i++) {
   row = rows[i];
   x_counties.push( row['location'] );
-  y_mean.push( row['mean'] );
+  y_mean.push( row['Mean'] );
   errorArray.push( row['ArrayPlus'] );
-  errorArrayMin.push( row['ArrayMinus'] );
+  errorArrayMin.push( row['ArrayMinu'] );
 }
-// console.log(x_counties);
-// console.log(y_mean);
-// console.log(errorArray);
-// console.log(errorArrayMin);
+console.log(x_counties);
+console.log(y_mean);
+console.log(errorArray);
+console.log(errorArrayMin);
 
 // Rearrange the arrays by their index
 // Correcting x_counties

@@ -1,9 +1,9 @@
 // create a var for the data
-var data = "data/low-birth-weight-WA_OR.csv";
+var data = "http://localhost:5000/API/BW";
 
 
 // create a trace
-d3.csv(data).then(function(rows){
+d3.json(data).then(function(rows){
     console.log(rows);
     // function unpack(rows, key) {
     //     return rows.map(function(row) { return row[key]; });
@@ -41,35 +41,35 @@ d3.csv(data).then(function(rows){
         '2015'
     ];
     rows.forEach(datapoint => {
-        if (datapoint.Geography == "Clackamas County"){
-            Clackamas.push(datapoint["%_of_babies"]);
+        if (datapoint.location == "Clackamas County"){
+            Clackamas.push(datapoint["percentage_of_babies"]);
         }
-        else if (datapoint.Geography == "Clark County"){
-            Clark.push(datapoint["%_of_babies"]);
+        else if (datapoint.location == "Clark County"){
+            Clark.push(datapoint["percentage_of_babies"]);
         }
-        else if (datapoint.Geography == "Columbia County"){
-            Columbia.push(datapoint["%_of_babies"]);
+        else if (datapoint.location == "Columbia County"){
+            Columbia.push(datapoint["percentage_of_babies"]);
         }
-        else if (datapoint.Geography == "Multnomah County"){
-            Multnomah.push(datapoint["%_of_babies"]);
+        else if (datapoint.location == "Multnomah County"){
+            Multnomah.push(datapoint["percentage_of_babies"]);
         }
-        else if (datapoint.Geography == "Oregon"){
-            Oregon.push(datapoint["%_of_babies"]);
+        else if (datapoint.location == "Oregon"){
+            Oregon.push(datapoint["percentage_of_babies"]);
         }
-        else if (datapoint.Geography == "Skamania County"){
-            Skamania.push(datapoint["%_of_babies"]);
+        else if (datapoint.location == "Skamania County"){
+            Skamania.push(datapoint["percentage_of_babies"]);
         }
-        else if (datapoint.Geography == "United States"){
-            US.push(datapoint["%_of_babies"]);
+        else if (datapoint.location == "United States"){
+            US.push(datapoint["percentage_of_babies"]);
         }
-        else if (datapoint.Geography == "Washington  "){
-            Washington.push(datapoint["%_of_babies"]);
+        else if (datapoint.location == "Washington  "){
+            Washington.push(datapoint["percentage_of_babies"]);
         }
-        else if (datapoint.Geography == "Washington County"){
-            WashingtonCounty.push(datapoint["%_of_babies"]);
+        else if (datapoint.location == "Washington County"){
+            WashingtonCounty.push(datapoint["percentage_of_babies"]);
         }
-        else if (datapoint.Geography == "Yamhill County"){
-            Yamhill.push(datapoint["%_of_babies"]);
+        else if (datapoint.location == "Yamhill County"){
+            Yamhill.push(datapoint["percentage_of_babies"]);
         }
     })
     console.log(Clackamas);

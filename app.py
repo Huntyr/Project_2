@@ -14,7 +14,7 @@ con = psycopg2.connect(
     host = "127.0.0.1",
     database = "low_birth_weight",
     user = "postgres",
-    password = "Sunsh1ne2",
+    password = "postgres",
     port="5432"
 )
 
@@ -56,7 +56,19 @@ def bw_to_json():
         birth_weight_dict["percentage_of_babies"] = percentage_of_babies
         birth_weight_db.append(birth_weight_dict)
     return jsonify(birth_weight_db)
-  
+
+def bw1_to_json():
+    aggregate_db = []
+    for location, Min, Max, Mean, ArrayPlus, ArrayMinus in rows1:
+        aggregate_dict = {}
+        aggregate_dict["location"] = location
+        aggregate_dict["Min"] = Min
+        aggregate_dict["Max"] = Max
+        aggregate_dict["Mean"] = Mean
+        aggregate_dict["ArrayPlus"] = ArrayPlus
+        aggregate_dict["ArrayMinu"] = ArrayMinus
+        aggregate_db.append(aggregate_dict)
+    return jsonify(aggregate_db)  
 ################# Parse the geojson data ###################
 file = './static/data/oregon-washignton-counties-geojson.json'
 
@@ -94,6 +106,10 @@ def geoJSON():
 @app.route('/API/BW')
 def BW():
 	return bw_to_json()
+
+@app.route('/API/AGG')
+def AGG():
+    return bw1_to_json()
 
 
 
