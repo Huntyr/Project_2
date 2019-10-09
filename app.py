@@ -1,4 +1,5 @@
 import psycopg2
+import csv
 from flask import Flask
 from flask import jsonify
 from flask import request
@@ -13,7 +14,7 @@ con = psycopg2.connect(
     host = "127.0.0.1",
     database = "low_birth_weight",
     user = "postgres",
-    password = "postgres",
+    password = "Sunsh1ne2",
     port="5432"
 )
 
@@ -46,12 +47,15 @@ cursor1.close()
 #close the connection
 con.close()
 
-def bw2csv():
-    csv="Geography,Year,%_of_babies\n"
-    for r in rows:
-        csv = csv + (f"{r[0]},{r[1]},{r[2]}\n")
-    return csv
-
+def bw_to_json():
+    birth_weight_db = []
+    for location, year, percentage_of_babies in rows:
+        birth_weight_dict = {}
+        birth_weight_dict["location"] = location
+        birth_weight_dict["year"] = year
+        birth_weight_dict["percentage_of_babies"] = percentage_of_babies
+        birth_weight_db.append(birth_weight_dict)
+    return jsonify(birth_weight_db)
 
 ################# Parse the geojson data ###################
 file = './static/data/oregon-washignton-counties-geojson.json'
@@ -83,11 +87,15 @@ def bar():
 def geoJSON():
     return jsonify(json_data)
 
+# @app.route('/API/BW')
+# def BW():
+#     return csv2json(rows)
+
 @app.route('/API/BW')
 def BW():
-    return bw2csv()
+	return bw_to_json()
 
-    
+
 
 if __name__ == "__main__":
     app.run(debug=True)
