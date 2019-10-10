@@ -1,6 +1,7 @@
 1. Load requirements.txt
 2. In Postgres create a new database: low-birth-weigh
 3. Open jupyter notebook and run low_birth_weight.ipynb (change line: In [7] with your postgres user/password/port)
-4. Run: $ python app.py (change lines 16-18 with your postgres user/password/port)
-5. Open browser to http://localhost:5000/
+4. Create a config.py in js folder with your mapbox API: var API_KEY = "API_KEY_HERE"
+5. Run $ python app.py (change lines 16-18 with your postgres user/password/port)
+6. Open browser to http://localhost:5000/
 Enjoy!
