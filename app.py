@@ -70,7 +70,7 @@ def bw1_to_json():
         aggregate_db.append(aggregate_dict)
     return jsonify(aggregate_db)  
 ################# Parse the geojson data ###################
-file = './static/data/oregon-washignton-counties-geojson.json'
+file = './data/oregon-washignton-counties-geojson.json'
 
 with open(file, encoding='utf-8-sig') as json_file:
 
