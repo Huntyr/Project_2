@@ -43,11 +43,38 @@
   <!-- Plotly chart will be drawn inside this DIV -->
   <div class="container">
     <div class="row">
-
       <div class="col-md-12 mt-5 jumbotron">
-
         <div id="myDiv"></div>
-
+        <div class="col-md-12">
+          <p>
+            This multiline chart shows the low birth weights relative to other surrounding counties, both the states of Oregon and 
+            Washington as a whole, and also in relation to the United States as a whole. Mouse over the graph for specific numbers by year.
+          </p>
+          <h1>Observations</h1>
+          <p>
+            Some immediate observations as the graph loads with all the data graphed is that Skamania county is highly variable, 
+            having the lowest minimum and highest maximum in the dataset. A potential answer for this swing can easily be ascribed 
+            to Skamania having the lowest population in comparison to the rest of the data (assuming we didn't have access to the underlying datasets for each of these aggregates, a simple internet search shows this to
+            be the case). More datapoints, in this case low birthweight babies, give for larger variation, while more datapoints give a smoother line from year to year.
+            Hence why the United States line is the smoothest of all the lines on this graph. Can you think of a potential other reason why 
+            the lines might vary from year to year more wildly that is not encompassed in population?
+          </p>
+          <p>
+            If you focus in on just the Washington, Oregon, and United States lines (by clicking the legend), you can immediately notice
+            a few things:
+            <ul>
+              <li>Oregon and Washington both are significantly lower than the US as a whole.</li>
+              <li>Though Oregon and Washington are both lower than the US, they do roughly seem to mirror the US trend.</li>
+              <li>There is a peak in the US data in 2006 that is also reflected in the Oregon data, but not Washington.</li>
+              <li>Though there is some variation between Washington and Oregon, a noticable trend is seen as they both trend up together.</li>              
+            </ul>
+            What could account for the peak and spike in 2006 in the US and Oregon data but not in Washington? Why would Washington and Oregon follow each other in such a visually correlated way? How 
+            could we determine if the factors involved in both states are mostly the same?
+          </p>
+          <p>
+            Do you see anything that interests you in this data as presented? Are there any more questions we should ask of this graph?
+          </p>
+        </div>
       </div>
     </div>
   </div>
