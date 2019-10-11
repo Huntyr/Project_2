@@ -47,6 +47,7 @@ cursor1.close()
 #close the connection
 con.close()
 
+# create a dictionary from the row data and append to birth_weight_db / aggregate_db
 def bw_to_json():
     birth_weight_db = []
     for location, year, percentage_of_babies in rows:
