@@ -10,6 +10,15 @@
 
 </nav>
 
+## Getting Started
+
+1.  Load requirements.txt
+1.  In Postgres create a new database: low_birth_weight
+1.  Open jupyter notebook and run low_birth_weight.ipynb (change line: In [7] with your postgres user/password/port)
+1.  Create a config.py in js folder with your mapbox API: var API_KEY = "API_KEY_HERE"
+1.  Run $ python app.py (change lines 16-18 with your postgres user/password/port)
+1.  Open browser to http://localhost:5000/
+Enjoy!
 </div>
 
 </div>
@@ -27,7 +36,6 @@
 </div>
 
 <div class="col-md-6">
-
 Using three visualizations: a line chart, a choropleth with draggable timeline, and an error bar bar chart, we explore the percentages of babies born with low birth weights in the Portland Metropolitan Area. We begin with a line chart for an overall view of US, state and county data, then we move onto a choropleth for a closer look at county changes over time, and we end with an error bar bar chart for a deeper view of each county.
 
 ### The Importance of the Data
